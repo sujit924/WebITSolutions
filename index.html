@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebITSolutionss | Website Development Solution</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    color:#172033;
+    background:#f7f9fc;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:90%;
+    max-width:1150px;
+    margin:auto;
+}
+
+/* NAVBAR */
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(255,255,255,.96);
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+}
+
+.navbar{
+    height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:800;
+    color:#155eef;
+}
+
+.logo span{
+    color:#111827;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+.nav-links a{
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#155eef;
+}
+
+.menu-btn{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    padding-top:120px;
+    display:flex;
+    align-items:center;
+    background:
+      radial-gradient(circle at 85% 20%,#dbeafe,transparent 30%),
+      linear-gradient(135deg,#ffffff,#eef5ff);
+}
+
+.hero-content{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:50px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 15px;
+    border-radius:30px;
+    background:#dbeafe;
+    color:#155eef;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(40px,6vw,68px);
+    line-height:1.08;
+    margin-bottom:22px;
+}
+
+.hero h1 span{
+    color:#155eef;
+}
+
+.hero p{
+    font-size:18px;
+    color:#667085;
+    max-width:600px;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 24px;
+    border-radius:10px;
+    background:#155eef;
+    color:white;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(21,94,239,.25);
+}
+
+.btn-outline{
+    background:white;
+    color:#155eef;
+    border:1px solid #155eef;
+    margin-left:10px;
+}
+
+.hero-card{
+    min-height:400px;
+    border-radius:30px;
+    background:linear-gradient(145deg,#155eef,#4f8cff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    text-align:center;
+    padding:40px;
+    box-shadow:0 25px 60px rgba(21,94,239,.25);
+}
+
+.hero-card .icon{
+    font-size:100px;
+}
+
+.hero-card h3{
+    font-size:28px;
+    margin-top:15px;
+}
+
+.hero-logo img{
+    max-width:180px;
+    max-height:80px;
+    object-fit:contain;
+    margin-bottom:15px;
+    border-radius:12px;
+}
+
+/* COMMON */
+section{
+    padding:90px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title small{
+    color:#155eef;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+.section-title h2{
+    font-size:40px;
+    margin:8px 0;
+}
+
+.section-title p{
+    color:#667085;
+}
+
+/* STATS */
+.stats{
+    background:#155eef;
+    color:white;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    text-align:center;
+    gap:20px;
+}
+
+.stat h3{
+    font-size:38px;
+}
+
+/* ABOUT */
+.about-grid{
+    display:grid;
+
+    /* LEFT AND RIGHT POSITIONS */
+    grid-template-columns:1fr 1fr;
+
+    gap:50px;
+    align-items:center;
+}
+
+/* WEBSITE SOLUTIONS - LEFT */
+.website-solution-card{
+    min-height:400px;
+    border-radius:25px;
+    background:linear-gradient(145deg,#155eef,#4f8cff);
+    color:white;
+    box-shadow:0 20px 50px rgba(21,94,239,.22);
+    padding:40px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+
+    /* FIRST CARD */
+    order:1;
+}
+
+.website-solution-card::before{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:rgba(255,255,255,.10);
+    top:-80px;
+    right:-60px;
+}
+
+.solution-card-content{
+    position:relative;
+    z-index:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    height:100%;
+}
+
+.solution-logo{
+    width:92px;
+    height:92px;
+    border-radius:24px;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:52px;
+    margin-bottom:22px;
+    box-shadow:0 12px 30px rgba(0,0,0,.16);
+}
+
+.website-solution-card h3{
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.website-solution-card p{
+    max-width:390px;
+    color:rgba(255,255,255,.90);
+    font-size:17px;
+}
+
+/* WE HELP YOU WEBSITE GROW - RIGHT */
+.about-box{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 35px rgba(0,0,0,.06);
+
+    /* SECOND CARD */
+    order:2;
+}
+
+.about-box h3{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.about-box p{
+    color:#667085;
+    margin-bottom:15px;
+}
+
+.check{
+    margin:12px 0;
+    font-weight:600;
+}
+
+.check span{
+    color:#155eef;
+    margin-right:8px;
+}
+
+/* SERVICES */
+.services{
+    background:white;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.service-card{
+    background:#f8fafc;
+    padding:30px;
+    border-radius:18px;
+    border:1px solid #e5e7eb;
+    transition:.3s;
+}
+
+.service-card:hover{
+    transform:translateY(-8px);
+    border-color:#155eef;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.service-icon{
+    width:60px;
+    height:60px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:15px;
+    background:#dbeafe;
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+.service-card h3{
+    margin-bottom:10px;
+}
+
+.service-card p{
+    color:#667085;
+}
+
+/* PORTFOLIO */
+.portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.project{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 30px rgba(0,0,0,.06);
+}
+
+.project-img{
+    height:210px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#bfdbfe,#e0f2fe);
+    font-size:70px;
+}
+
+.project-content{
+    padding:22px;
+}
+
+.project-content p{
+    color:#667085;
+}
+
+.project-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* WHY US */
+.why{
+    background:#111827;
+    color:white;
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.why-card{
+    padding:25px;
+    border:1px solid #374151;
+    border-radius:16px;
+    background:#1f2937;
+}
+
+.why-card h3{
+    margin-bottom:8px;
+}
+
+.why-card p{
+    color:#cbd5e1;
+}
+
+/* PROCESS */
+.process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.process{
+    text-align:center;
+    padding:25px;
+}
+
+.number{
+    width:60px;
+    height:60px;
+    margin:0 auto 18px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#155eef;
+    color:white;
+    font-weight:bold;
+    font-size:22px;
+}
+
+/* TESTIMONIAL */
+.testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.testimonial{
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+.stars{
+    color:#f59e0b;
+    font-size:20px;
+    margin-bottom:15px;
+}
+
+/* FAQ */
+.faq{
+    max-width:800px;
+    margin:auto;
+}
+
+.faq-item{
+    background:white;
+    margin-bottom:12px;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.faq-question{
+    padding:20px;
+    font-weight:bold;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+}
+
+.faq-answer{
+    display:none;
+    padding:0 20px 20px;
+    color:#667085;
+}
+
+.faq-item.active .faq-answer{
+    display:block;
+}
+
+/* CONTACT */
+.contact{
+    background:#eef5ff;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:35px;
+}
+
+.contact-info,
+.contact-form{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+}
+
+.contact-info h3{
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+.contact-item{
+    margin:20px 0;
+}
+
+.contact-item strong{
+    display:block;
+}
+
+.contact-item span{
+    color:#667085;
+}
+
+.form-group{
+    margin-bottom:17px;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:14px;
+    border:1px solid #d0d5dd;
+    border-radius:9px;
+    outline:none;
+    font-size:15px;
+}
+
+.form-group textarea{
+    height:130px;
+    resize:none;
+}
+
+/* FOOTER */
+footer{
+    background:#0b1220;
+    color:white;
+    padding:55px 0 20px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:40px;
+}
+
+footer h3{
+    margin-bottom:15px;
+}
+
+footer p,
+footer li{
+    color:#aab4c3;
+}
+
+footer ul{
+    list-style:none;
+}
+
+footer li{
+    margin:8px 0;
+}
+
+.copyright{
+    text-align:center;
+    border-top:1px solid #263244;
+    margin-top:35px;
+    padding-top:20px;
+    color:#94a3b8;
+}
+
+/* CALL BUTTON */
+.call-button{
+    position:fixed;
+    top:82px;
+    right:20px;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:#155eef;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+    z-index:998;
+    box-shadow:0 8px 25px rgba(0,0,0,.18);
+    transition:.3s;
+}
+
+.call-button:hover{
+    transform:translateY(-3px) scale(1.05);
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#25d366;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    z-index:999;
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+/* TOP BUTTON */
+#topBtn{
+    position:fixed;
+    right:20px;
+    bottom:90px;
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:#155eef;
+    color:white;
+    cursor:pointer;
+    display:none;
+}
+
+/* RESPONSIVE */
+@media(max-width:850px){
+
+    .menu-btn{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:72px;
+        left:0;
+        width:100%;
+        background:white;
+        display:none;
+        flex-direction:column;
+        padding:20px;
+        box-shadow:0 10px 20px rgba(0,0,0,.08);
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .hero-content,
+    .about-grid,
+    .why-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .website-solution-card{
+        order:1;
+    }
+
+    .about-box{
+        order:2;
+    }
+
+    .service-grid,
+    .portfolio-grid,
+    .testimonial-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero{
+        padding-top:100px;
+    }
+}
+
+@media(max-width:550px){
+
+    section{
+        padding:65px 0;
+    }
+
+    .service-grid,
+    .portfolio-grid,
+    .testimonial-grid,
+    .footer-grid,
+    .process-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+        margin:5px 0;
+    }
+
+    .btn-outline{
+        margin-left:0;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+<div class="container navbar">
+
+<a href="#" class="logo">
+    Web<span>ITSolutionss</span>
+</a>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
+
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="container hero-content">
+
+<div>
+    <span class="badge">Best Website Development Solution</span>
+
+    <h1>
+        Welcome to <span>WebITSolutionss</span>
+    </h1>
+
+    <p>
+        Professional website development solutions for businesses,
+        startups and personal brands. We build modern, responsive
+        and user-friendly websites that help your Moblie app Development
+        grow online.
+    </p>
+
+    <a href="#contact" class="btn">Get Started</a>
+    <a href="#services" class="btn btn-outline">Our Services</a>
+</div>
+
+<div class="hero-card">
+    <div>
+        <div class="hero-logo">
+            <img src="WebITSolutionss-logo.png"
+                 alt="WebITSolutionss Logo"
+                 onerror="this.style.display='none'">
+        </div>
+
+        <div class="icon">🚀</div>
+
+        <h3>Website Development Solution</h3>
+
+        <p>
+            Modern, responsive and professional websites
+            for your Moblie app Development.
+        </p>
+    </div>
+</div>
+
+</div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+<div class="container stats-grid">
+
+<div class="stat">
+    <h3>100+</h3>
+    <p>Projects</p>
+</div>
+
+<div class="stat">
+    <h3>50+</h3>
+    <p>Clients</p>
+</div>
+
+<div class="stat">
+    <h3>5+</h3>
+    <p>Years Experience</p>
+</div>
+
+<div class="stat">
+    <h3>24/7</h3>
+    <p>Support</p>
+</div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="container">
+
+<div class="section-title">
+    <small>About Us</small>
+    <h2>Who We Are</h2>
+    <p>We help you build, improve and grow your digital presence.</p>
+</div>
+
+<div class="about-grid">
+
+<!-- LEFT CARD -->
+<div class="about-visual website-solution-card">
+    <div class="solution-card-content">
+
+        <div class="solution-logo">🌐</div>
+
+        <h3>Website Solutions</h3>
+
+        <p>
+            We help you website grow with modern,
+            responsive and professional solutions.
+        </p>
+
+    </div>
+</div>
+
+<!-- RIGHT CARD -->
+<div class="about-box">
+
+    <h3>We Help You Website Grow</h3>
+
+    <p>
+        We help businesses build a strong digital presence
+        with modern website development solutions,
+        professional design and reliable support.
+    </p>
+
+    <div class="check">
+        <span>✓</span> Professional Team
+    </div>
+
+    <div class="check">
+        <span>✓</span> Quality Services
+    </div>
+
+    <div class="check">
+        <span>✓</span> Affordable Solutions
+    </div>
+
+    <div class="check">
+        <span>✓</span> Fast Support
+    </div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="container">
+
+<div class="section-title">
+    <small>Our Services</small>
+    <h2>What We Do</h2>
+    <p>
+        Website, mobile app, dashboard and digital marketing
+        solutions for modern businesses.
+    </p>
+</div>
+
+<div class="service-grid">
+
+<div class="service-card">
+    <div class="service-icon">💻</div>
+    <h3>Website Development</h3>
+    <p>Modern, responsive and professional websites for your business.</p>
+</div>
+
+<div class="service-card">
+    <div class="service-icon">📱</div>
+    <h3>Mobile App Development</h3>
+    <p>Powerful mobile applications designed for modern users.</p>
+</div>
+
+<div class="service-card">
+    <div class="service-icon">🎨</div>
+    <h3>UI/UX Design</h3>
+    <p>Clean and user-friendly designs that improve customer experience.</p>
+</div>
+
+<div class="service-card">
+    <div class="service-icon">📈</div>
+    <h3>Digital Marketing</h3>
+    <p>Grow your brand and reach more customers online.</p>
+</div>
+
+<div class="service-card">
+    <div class="service-icon">⚙️</div>
+    <h3>Dashboard Development</h3>
+    <p>
+        Professional admin dashboards and business
+        management interfaces built around your requirements.
+    </p>
+</div>
+
+<div class="service-card">
+    <div class="service-icon">🛠️</div>
+    <h3>Support & Maintenance</h3>
+    <p>Reliable technical support whenever you need it.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+<div class="container">
+
+<div class="section-title">
+    <small>Our Work</small>
+    <h2>Latest Projects</h2>
+    <p>Some examples of our professional work.</p>
+</div>
+
+<div class="portfolio-grid">
+
+<div class="project">
+    <div class="project-img">🌐</div>
+    <div class="project-content">
+        <h3>Business Website</h3>
+        <p>Modern responsive business website.</p>
+    </div>
+</div>
+
+<div class="project">
+    <div class="project-img">💻</div>
+    <div class="project-content">
+        <h3>Software Development</h3>
+        <p>Custom software and web application development project.</p>
+    </div>
+</div>
+
+<div class="project">
+    <div class="project-img">📱</div>
+    <div class="project-content">
+        <h3>Mobile Application</h3>
+        <p>Modern mobile app UI and experience.</p>
+    </div>
+</div>
+
+<div class="project">
+    <div class="project-img">🚀</div>
+    <div class="project-content">
+        <h3>Mini Projects</h3>
+        <p>
+            Small and practical website, software
+            and digital solution projects.
+        </p>
+    </div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+<div class="container">
+
+<div class="section-title">
+    <small>Why Choose Us</small>
+    <h2>Why Work With Us?</h2>
+    <p>We focus on quality, trust and long-term relationships.</p>
+</div>
+
+<div class="why-grid">
+
+<div class="why-card">
+    <h3>⭐ Quality First</h3>
+    <p>We focus on delivering reliable and high-quality work.</p>
+</div>
+
+<div class="why-card">
+    <h3>⚡ Fast Delivery</h3>
+    <p>We respect deadlines and work efficiently.</p>
+</div>
+
+<div class="why-card">
+    <h3>💰 Affordable Pricing</h3>
+    <p>Professional solutions at reasonable prices.</p>
+</div>
+
+<div class="why-card">
+    <h3>🤝 Customer Support</h3>
+    <p>We are available to help you whenever required.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section>
+<div class="container">
+
+<div class="section-title">
+    <small>Our Process</small>
+    <h2>How We Work</h2>
+</div>
+
+<div class="process-grid">
+
+<div class="process">
+    <div class="number">01</div>
+    <h3>Discuss</h3>
+    <p>Understand your requirements.</p>
+</div>
+
+<div class="process">
+    <div class="number">02</div>
+    <h3>Plan</h3>
+    <p>Create the right strategy.</p>
+</div>
+
+<div class="process">
+    <div class="number">03</div>
+    <h3>Build</h3>
+    <p>Develop your project.</p>
+</div>
+
+<div class="process">
+    <div class="number">04</div>
+    <h3>Launch</h3>
+    <p>Deliver and support your project.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+<div class="container">
+
+<div class="section-title">
+    <small>Testimonials</small>
+    <h2>What Clients Say</h2>
+</div>
+
+<div class="testimonial-grid">
+
+<div class="testimonial">
+    <div class="stars">★★★★★</div>
+    <p>
+        "Excellent service and professional work.
+        Highly recommended."
+    </p>
+    <br>
+    <strong>Rahul Patel</strong>
+</div>
+
+<div class="testimonial">
+    <div class="stars">★★★★★</div>
+    <p>
+        "Very responsive team and excellent quality.
+        Great experience."
+    </p>
+    <br>
+    <strong>Jay Shah</strong>
+</div>
+
+<div class="testimonial">
+    <div class="stars">★★★★★</div>
+    <p>
+        "They understood our requirements perfectly
+        and delivered a great project."
+    </p>
+    <br>
+    <strong>Amit Kumar</strong>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+<div class="container">
+
+<div class="section-title">
+    <small>FAQ</small>
+    <h2>Frequently Asked Questions</h2>
+</div>
+
+<div class="faq">
+
+<div class="faq-item">
+    <div class="faq-question">
+        How can I start a project?
+        <span>+</span>
+    </div>
+
+    <div class="faq-answer">
+        Contact us through WhatsApp, phone or the contact form.
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question">
+        Do you provide custom solutions?
+        <span>+</span>
+    </div>
+
+    <div class="faq-answer">
+        Yes. We can create solutions according to your business requirements.
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question">
+        Do you provide support?
+        <span>+</span>
+    </div>
+
+    <div class="faq-answer">
+        Yes, support and maintenance services are available.
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question">
+        How can I contact you?
+        <span>+</span>
+    </div>
+
+    <div class="faq-answer">
+        You can contact us through WhatsApp, email or phone.
+    </div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="container">
+
+<div class="section-title">
+    <small>Contact Us</small>
+    <h2>Let's Work Together</h2>
+    <p>Send us your requirements and we will contact you.</p>
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-info">
+
+    <h3>Get In Touch</h3>
+
+    <div class="contact-item">
+        <strong>📞 Phone</strong>
+        <span>+91 6356684253</span>
+    </div>
+
+    <div class="contact-item">
+        <strong>📧 Email</strong>
+        <span>Sujititi87@gmail.com</span>
+    </div>
+
+    <div class="contact-item">
+        <strong>📍 Location</strong>
+        <span>Bhavnagar, Gujarat, India</span>
+    </div>
+
+    <div class="contact-item">
+        <strong>🕐 Working Hours</strong>
+        <span>Mon - Sat | 9:00 AM - 7:30 PM</span>
+    </div>
+
+</div>
+
+<form class="contact-form" onsubmit="sendWhatsApp(event)">
+
+<div class="form-group">
+    <input id="name" type="text"
+           placeholder="Your Name" required>
+</div>
+
+<div class="form-group">
+    <input id="email" type="email"
+           placeholder="Your Email" required>
+</div>
+
+<div class="form-group">
+    <input id="phone" type="tel"
+           placeholder="Mobile Number" required>
+</div>
+
+<div class="form-group">
+    <textarea id="message"
+              placeholder="Your Message"
+              required></textarea>
+</div>
+
+<button class="btn" type="submit">
+    Send Enquiry
+</button>
+
+</form>
+
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+    <h3>WebITSolutionss</h3>
+
+    <p>
+        Professional Website & Moblie app solutions
+        designed to help your WebITSolutionss grow.
+    </p>
+</div>
+
+<div>
+    <h3>Quick Links</h3>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</div>
+
+<div>
+    <h3>Services</h3>
+
+    <ul>
+        <li>Website Development</li>
+        <li>Software Development</li>
+        <li>Digital Marketing</li>
+        <li>UI/UX Design</li>
+    </ul>
+</div>
+
+</div>
+
+<div class="copyright">
+    © 2026 WebITSolutionss. All Rights Reserved.
+</div>
+
+</div>
+</footer>
+
+<!-- CALL BUTTON -->
+<a class="call-button"
+   href="tel:+916356684253"
+   aria-label="Call us"
+   title="Call us">
+   ☎
+</a>
+
+<!-- WHATSAPP -->
+<a class="whatsapp"
+   href="https://wa.me/916356684253"
+   target="_blank"
+   aria-label="WhatsApp">
+   ☎
+</a>
+
+<!-- TOP BUTTON -->
+<button id="topBtn"
+        onclick="window.scrollTo(0,0)">
+    ↑
+</button>
+
+<script>
+
+/* MOBILE MENU */
+function toggleMenu(){
+    document.getElementById("navLinks")
+        .classList.toggle("show");
+}
+
+/* CLOSE MOBILE MENU */
+document.querySelectorAll(".nav-links a")
+.forEach(link=>{
+    link.addEventListener("click",()=>{
+        document.getElementById("navLinks")
+            .classList.remove("show");
+    });
+});
+
+/* FAQ */
+document.querySelectorAll(".faq-question")
+.forEach(question=>{
+
+    question.addEventListener("click",()=>{
+
+        const item = question.parentElement;
+
+        document.querySelectorAll(".faq-item")
+        .forEach(other=>{
+
+            if(other !== item){
+                other.classList.remove("active");
+            }
+
+        });
+
+        item.classList.toggle("active");
+
+    });
+
+});
+
+/* WHATSAPP CONTACT FORM */
+function sendWhatsApp(event){
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("name").value;
+
+    const email =
+        document.getElementById("email").value;
+
+    const phone =
+        document.getElementById("phone").value;
+
+    const message =
+        document.getElementById("message").value;
+
+    const whatsappNumber = "916356684253";
+
+    const text =
+        "Name: " + encodeURIComponent(name) + "%0A" +
+        "Email: " + encodeURIComponent(email) + "%0A" +
+        "Mobile: " + encodeURIComponent(phone) + "%0A" +
+        "Message: " + encodeURIComponent(message);
+
+    window.open(
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        text,
+        "_blank"
+    );
+}
+
+/* TOP BUTTON */
+window.addEventListener("scroll",()=>{
+
+    const btn =
+        document.getElementById("topBtn");
+
+    if(window.scrollY > 400){
+        btn.style.display = "block";
+    }else{
+        btn.style.display = "none";
+    }
+
+});
+
+</script>
+
+</body>
+</html>
